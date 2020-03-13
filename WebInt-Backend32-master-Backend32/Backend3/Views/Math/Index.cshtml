@@ -1,0 +1,27 @@
+﻿@model List<Backend3.Models.QuizViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Quiz</h2>
+
+<form asp-action="Index">
+
+    <span>@ViewBag.X @ViewBag.Op @ViewBag.Y =</span>
+    <input type="hidden" name="X" value="@ViewBag.X" />
+    <input type="hidden" name="Y" value="@ViewBag.Y" />
+    <input type="hidden" name="Op" value="@ViewBag.Op" />
+    <input type="number" name="Answer" />
+
+    @for(int i = 0; i < Model.Count; i++)
+    {
+        <input type="hidden" asp-for="@Model[i].X" />
+        <input type="hidden" asp-for="@Model[i].Y" />
+        <input type="hidden" asp-for="@Model[i].Op" />
+        <input type="hidden" asp-for="@Model[i].Answer" />
+    }
+
+    <input type="submit" name="action" value="Next" />
+    <input type="submit" name="action" value="Finish" />
+</form>

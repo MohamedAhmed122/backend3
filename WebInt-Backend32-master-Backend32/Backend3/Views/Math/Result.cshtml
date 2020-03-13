@@ -1,0 +1,16 @@
+﻿@model List<Backend3.Models.QuizViewModel>
+
+@{
+    ViewData["Title"] = "Quiz Result";
+}
+
+<h2>Result</h2>
+
+<p>
+    <ol>
+        @foreach (var entry in Model)
+        {
+            <li class="@(entry.Correct ? "text-success": "text-danger")">@entry</li>
+        }
+    </ol>
+</p>
