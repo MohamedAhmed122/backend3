@@ -19,7 +19,7 @@ namespace Backend3.Controllers
             this.randomiserService = randomiserService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() // get
         {
             List<string> quizQuestions = new List<string>();
             List<int> quizResults = new List<int>();
