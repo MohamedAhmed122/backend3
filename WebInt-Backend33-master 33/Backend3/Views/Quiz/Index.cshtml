@@ -1,0 +1,35 @@
+﻿@model Backend3.Models.QuizViewModel
+@{
+    ViewBag.Title = "Hello Quiz";
+}
+
+<h2>Quiz</h2>
+
+<form asp-action="Index" class="form-horizontal">
+    <input type="hidden" asp-for="@Model.ItemNumber" />
+    @for (var i = 0; i < Model.QuizQuestions.Count; i++)
+    {
+        <input type="hidden" asp-for="@Model.QuizQuestions[i]" />
+        <input type="hidden" asp-for="@Model.QuizAnswer[i]" />
+    }
+    @if (Model.UserAnswer != null)
+    {
+        for (var i = 0; i < Model.UserAnswer.Count; i++)
+        {
+            <input type="hidden" asp-for="@Model.UserAnswer[i]" />
+        }
+    }
+    <div class="form-group">
+        <label class="col-md-2 control-label">@Model.QuizQuestions[@Model.ItemNumber]</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="Answer" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            <button type="submit" name="Action" value="Submit" class="btn btn-default">Submit</button>
+            <button type="submit" name="Action" value="Finish" class="btn btn-primary">Finish</button>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,26 @@
+﻿@model Backend3.Models.QuizViewModel
+@{
+    ViewBag.Title = "Hello Quiz";
+}
+
+<h2>Quiz results</h2>
+
+<p>
+    <strong>Correct answers: </strong> @Model.CorrectAnswers
+</p>
+<p>
+   
+    <ol>
+        @for (var i = 0; i < Model.UserAnswer.Count; i++)
+        {
+            if (Model.UserAnswer[i] == Model.QuizAnswer[i])
+            {
+                <li>@Model.QuizQuestions[i] @Model.UserAnswer[i]</li>
+            }
+            else
+            {
+                <li class="text-danger">@Model.QuizQuestions[i] @Model.UserAnswer[i]</li>
+            }
+        }
+    </ol>
+</p>
